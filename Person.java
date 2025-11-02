@@ -55,5 +55,7 @@ public class Person {
         for (Person person : persons) {
             System.out.println(person);
         }
+        System.out.println("--------------------------");
+        System.out.println("Total Students: " + persons.length);
     }
 }
