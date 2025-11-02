@@ -32,9 +32,21 @@ public class Student extends Person {
         this.marks = marks;
     }
     
+    public String getGrade() {
+        if (marks >= 90) return "A";
+        else if (marks >= 80) return "B";
+        else if (marks >= 70) return "C";
+        else if (marks >= 60) return "D";
+        else return "F";
+    }
+    
+    public boolean hasPassed() {
+        return marks >= 50;
+    }
+    
     @Override
     public String toString() {
-        return String.format("%-20s %3d %-10s %6.2f", name, age, studentID, marks);
+        return String.format("%-20s %3d %-10s %6.2f %2s", name, age, studentID, marks, getGrade());
     }
     
     public static void main(String[] args) {
@@ -53,13 +65,13 @@ public class Student extends Person {
         
         System.out.println("STUDENT MANAGEMENT SYSTEM");
         System.out.println("==========================");
-        System.out.printf("%-20s %3s %-10s %6s%n", "Name", "Age", "StudentID", "Marks");
-        System.out.println("------------------------------------------");
+        System.out.printf("%-20s %3s %-10s %6s %2s%n", "Name", "Age", "StudentID", "Marks", "Grade");
+        System.out.println("----------------------------------------------");
         
         for (Student student : students) {
             System.out.println(student);
         }
-        System.out.println("------------------------------------------");
+        System.out.println("----------------------------------------------");
         System.out.println("Total Students: " + students.length);
     }
 }
