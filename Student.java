@@ -54,13 +54,13 @@ public class Student extends Person {
             new Student("John Smith", 18, "S001", 85.5),
             new Student("Alice Johnson", 19, "S002", 92.0),
             new Student("Bob Wilson", 17, "S003", 67.5),
-            new Student("Emma Davis", 18, "S004", 88.0),
-            new Student("Mike Brown", 19, "S005", 91.5),
-            new Student("Sarah Miller", 17, "S006", 56.0),
-            new Student("David Garcia", 19, "S007", 89.5),
-            new Student("Lisa Anderson", 18, "S008", 94.0),
+            new Student("Emma Davis", 18, "S004", 78.0),
+            new Student("Mike Brown", 19, "S005", 95.0),
+            new Student("Sarah Miller", 17, "S006", 45.0),
+            new Student("David Garcia", 19, "S007", 63.5),
+            new Student("Lisa Anderson", 18, "S008", 88.0),
             new Student("James Taylor", 17, "S009", 72.5),
-            new Student("Maria Rodriguez", 19, "S010", 87.0)
+            new Student("Maria Rodriguez", 19, "S010", 58.0)
         };
         
         System.out.println("STUDENT MANAGEMENT SYSTEM");
