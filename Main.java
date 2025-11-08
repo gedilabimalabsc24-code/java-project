@@ -1,69 +1,42 @@
+import java.time.LocalDateTime;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println("Program started at: " + LocalDateTime.now());
         try {
-            // Array of 30 student names for demonstration
-            String[] names = {"John Doe", "Jane Smith", "Mike Johnson", "Sarah Wilson", "David Brown", 
-                            "Lisa Davis", "Tom Miller", "Anna Garcia", "Chris Martinez", "Emma Rodriguez", 
-                            "Ryan Lopez", "Olivia Hernandez", "Kevin Gonzalez", "Sophia Perez", "Daniel Sanchez", 
-                            "Isabella Ramirez", "Matthew Torres", "Mia Flores", "Andrew Rivera", "Charlotte Cook", 
-                            "Joshua Bailey", "Amelia Cooper", "Christopher Reed", "Harper Kelly", "Anthony Howard", 
-                            "Evelyn Ward", "Mark Cox", "Abigail Diaz", "Steven Richardson", "Emily Wood"};
+            // Create students with ages 18-21
+            Student s1 = new Student("John Doe", 18, "STU001", 75);
+            Student s2 = new Student("Jane Smith", 19, "STU002", 45);
+            Student s3 = new Student("Mike Johnson", 20, "STU003", 85);
+            Student s4 = new Student("Sarah Wilson", 21, "STU004", 35);
             
-            // Display professional students table header with box drawing characters
-            System.out.println("\n╔═══════════════════════════════════════════════════════════════════════════════╗");
-            System.out.println("║                                  STUDENTS RECORD                                 ║");
-            System.out.println("╠══════╦══════════════════════╦═══════╦═══════════╦═══════════════════════════════╣");
-            System.out.printf("║ %-4s ║ %-20s ║ %-5s ║ %-9s ║ %-29s ║%n", "No.", "Name", "Age", "ID", "Marks");
-            System.out.println("╠══════╬══════════════════════╬═══════╬═══════════╬═══════════════════════════════╣");
+            // Validate student IDs
+            DataValidator.isValidStudentId(s1.getStudentId());
+            DataValidator.isValidStudentId(s2.getStudentId());
+            DataValidator.isValidStudentId(s3.getStudentId());
+            DataValidator.isValidStudentId(s4.getStudentId());
             
-            // Create and display 30 students
-            for (int i = 0; i < 30; i++) {
-                // Create student with calculated age and marks
-                Student student = new Student(names[i], 18 + (i % 8), "STU" + String.format("%03d", i + 1), 60 + (i * 2.5) % 40);
-                
-                // Validate student ID using custom validator
-                DataValidator.isValidStudentId(student.getStudentId());
-                
-                // Save student data to file
-                StudentData.saveStudent(student);
-                
-                // Display student in professional table format
-                System.out.printf("║ %-4d ║ %-20s ║ %-5d ║ %-9s ║ %-29.1f ║%n", 
-                                i + 1, student.getName(), student.getAge(), student.getStudentId(), student.getMarks());
-            }
-            // Close students table with bottom border
-            System.out.println("╚══════╩══════════════════════╩═══════╩═══════════╩═══════════════════════════════╝");
+            // Save students to file
+            StudentData.saveStudent(s1);
+            StudentData.saveStudent(s2);
+            StudentData.saveStudent(s3);
+            StudentData.saveStudent(s4);
             
-            // Arrays for 10 teachers data
-            String[] teacherNames = {"Dr. Robert Johnson", "Prof. Maria Garcia", "Mr. James Wilson", "Ms. Linda Brown", 
-                                   "Dr. Michael Davis", "Prof. Jennifer Miller", "Mr. William Moore", "Ms. Patricia Taylor", 
-                                   "Dr. Richard Anderson", "Prof. Susan Thomas"};
-            String[] subjects = {"Mathematics", "Physics", "Chemistry", "Biology", "English", 
-                               "History", "Geography", "Computer Science", "Economics", "Psychology"};
+            // Display students
+            System.out.println("Students:");
+            System.out.println(s1);
+            System.out.println(s2);
+            System.out.println(s3);
+            System.out.println(s4);
             
-            // Display professional teachers table header with box drawing characters
-            System.out.println("\n\n╔═══════════════════════════════════════════════════════════════════╗");
-            System.out.println("║                              TEACHERS RECORD                              ║");
-            System.out.println("╠══════╦══════════════════════╦═══════╦═══════════════════════════════╣");
-            System.out.printf("║ %-4s ║ %-20s ║ %-5s ║ %-29s ║%n", "No.", "Name", "Age", "Subject");
-            System.out.println("╠══════╬══════════════════════╬═══════╬═══════════════════════════════╣");
-            
-            // Create and display 10 teachers
-            for (int i = 0; i < 10; i++) {
-                // Create teacher with calculated age
-                Teacher teacher = new Teacher(teacherNames[i], 30 + (i * 3), subjects[i]);
-                
-                // Display teacher in professional table format
-                System.out.printf("║ %-4d ║ %-20s ║ %-5d ║ %-29s ║%n", 
-                                i + 1, teacher.getName(), teacher.getAge(), teacher.getSubject());
-            }
-            // Close teachers table with bottom border
-            System.out.println("╚══════╩══════════════════════╩═══════╩═══════════════════════════════╝");
+            // Create teacher
+            Teacher t1 = new Teacher("Dr. Smith", 35, "Mathematics");
+            System.out.println("\nTeacher:");
+            System.out.println(t1);
             
         } catch (CustomException e) {
-            // Handle custom exceptions with error message
             System.err.println("Error: " + e.getMessage());
         }
+        System.out.println("Program ended at: " + LocalDateTime.now());
     }
 }

@@ -1,10 +1,15 @@
-/**
- * CustomException class - Custom exception for the Student Management System
- * Demonstrates exception handling concepts
- */
+import java.time.LocalDateTime;
+
 public class CustomException extends Exception {
-    // Constructor that accepts error message
+    private String timestamp;
+    
     public CustomException(String message) {
-        super(message);  // Call parent Exception constructor
+        super(message);
+        this.timestamp = LocalDateTime.now().toString();
+    }
+    
+    @Override
+    public String getMessage() {
+        return super.getMessage() + " [" + timestamp + "]";
     }
 }
