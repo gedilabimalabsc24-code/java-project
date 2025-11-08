@@ -1,3 +1,8 @@
+/*
+ * Student Class - Extends Person, adds student ID and marks
+ * Author: Dhruvi
+ * Last edited: November 2025
+ */
 public class Student extends Person {
     private String studentId;
     private double marks;
