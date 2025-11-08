@@ -1,3 +1,8 @@
+/*
+ * StudentData Class - Handles file I/O operations
+ * Author: Dhruvi
+ * Last edited: November 2025
+ */
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
