@@ -1,8 +1,4 @@
-/**
- * Student Management System - Main Class
- * Demonstrates inheritance, exception handling, and file operations
- * Creates 30 students and 10 teachers with professional table display
- */
+
 public class Main {
     public static void main(String[] args) {
         try {
