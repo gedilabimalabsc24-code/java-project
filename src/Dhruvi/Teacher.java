@@ -4,6 +4,8 @@
  * Date: November 2025
  */
 
+package Dhruvi;
+
 public class Teacher extends Person {
     private String subject;
     
